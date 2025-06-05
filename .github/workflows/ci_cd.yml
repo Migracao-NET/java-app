@@ -1,0 +1,17 @@
+name: Java Application CI/CD
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+        
+permissions:
+  contents: read
+  packages: write
+       
+jobs:
+    build:
+        uses: Migracao-NET/pipeline_templates/.github/workflows/javagradle_build.yml@main
+        secrets:
+            SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
